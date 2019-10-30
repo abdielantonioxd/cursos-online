@@ -40,7 +40,7 @@ usersSession.post("/get-user", function (req, res) {
     }
     res.json({
       ok: true,
-      role
+     save:role
     });
   });
 });

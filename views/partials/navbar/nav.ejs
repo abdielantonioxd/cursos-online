@@ -17,7 +17,7 @@
                 <a class="login" href="#" data-toggle="modal" data-target="#registro" data-backdrop="false">Crear
                     Cuenta</a>
                 <a class="btn btn-light action-button" role="button" href="#" style="background-color: rgb(215,182,5);"
-                    data-toggle="modal" data-target="#inicio" data-backdrop="false">Iniciar sesion</a>
+                    data-toggle="modal" data-target="#inicio" >Iniciar sesion</a>
             </span>
             <div ng-hide="userActive">
                 <div class="dropdown">
@@ -35,8 +35,8 @@
 
 
             <!-- modales -->
-            <div class="modal fade" id="inicio" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                aria-hidden="true">
+            <div class="modal fade " id="inicio" tabindex="-1" role="dialog" data-backdrop="false" aria-labelledby="exampleModalCenterTitle"
+                aria-hidden="true" style="background: #00000061; " >
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -69,7 +69,7 @@
 
             <!-- modales -->
             <div class="modal fade" id="registro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                aria-hidden="true">
+                aria-hidden="true" style="background: #00000061;">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">

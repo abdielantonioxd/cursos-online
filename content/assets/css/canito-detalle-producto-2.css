@@ -41,9 +41,9 @@
   margin-bottom: 3px;
 }
 
-.gift__bottom {
+/* .gift__bottom {
   padding: 10px 0;
-}
+} */
 
 .gift__price-wrap {
   color: #444444;
@@ -67,8 +67,8 @@
 
 .gift__cta {
   max-width: 265px;
-  background-color: #01a8ff;
-  border-radius: 5px;
+  /* background-color: #01a8ff; */
+  /* border-radius: 5px; */
   display: inline-block;
   margin: 0 auto;
   font-size: 15px;
@@ -113,7 +113,7 @@
   margin-bottom: 3px;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .gift__img {
     border: 1px solid #e2e2e2;
   }
@@ -123,5 +123,5 @@
   .gift__cta {
     font-size: 18px;
   }
-}
+} */
 

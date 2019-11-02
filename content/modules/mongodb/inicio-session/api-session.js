@@ -26,7 +26,6 @@ usersSession.post("/api/insert-user", function (req, res) {
   });
 });
 
-
 usersSession.post("/get-user", function (req, res) {
   //muestra los modulos segun el role
   let body = req.body;

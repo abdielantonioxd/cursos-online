@@ -5,10 +5,80 @@
 <body>
   <% include partials/navbar/nav%>
 
+  <div class="container " ng-controller="filter-cursos">
+    <div class="row">
+      <div class="col-sm-8 col-md-3 border-rigth mt-3 ">
+        <div class="input-group ">
+          <div class="input-group-prepend">
+            <button class="btn btn-danger" type="button" id="button-addon1">Buscar</button>
+          </div>
+          <input type="text" class="form-control border" placeholder="¿Qué curso buscas?"
+            aria-describedby="button-addon1">
+        </div>
+        <div class="form-group mt-4">
+            <h6>Categorias</h6>
+            <hr>
+            <div class="mt-3" ng-repeat="e in categorias">
+              <label class="color-check container-check-search dbl" for="{{e.id}}"> {{e.type}}
+                <input type="radio" name="categorias" id="{{e.id}}" value="{{e.type}}" ng-model="e.isChecked"
+                  ng-click="categorias(this.e)" ng-dblclick="dblClick()">
+                <span class="checkmark"></span>
+              </label>
+            </div>
+          </div>
 
+      </div>
+      <div class="col-md-8">
+        <nav class="navbar navbar-light bg-light">
+          <span class="navbar-text">
+            Cursos disponibles
+          </span>
+          <button type="button" class="btn btn-light float-right" style="background: #c3c7ca;">
+            Resultados <span class="badge badge-light">9</span>
+          </button>
+        </nav>
 
-
-
+        <!-- <hr> -->
+        <div class="gift row">
+          <div class="gift__img col-sm-3 col-12">
+            <img src="./assets/img/computer-1245714_1920.jpg" />
+            <div class="gift__rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star fa-star-half-o"></i>
+              <i class="fa fa-star fa-star-o"></i>
+              <span class="gift__rating-number">921</span></div>
+          </div>
+          <div class="gift__info col-sm-9 col-12">
+            <h4 class="gift__name">Curso de Programacion<br /></h4>
+            <div class="gift__details">
+              <p><br />Aprenderas los conceptos basicos de programacion<br /><br /></p>
+            </div>
+            <div class="gift__bottom row">
+              <div class="gift__price-wrap col-12 col-sm-6">
+                <div class="gift__normal-price"></div>
+                <div class="gift__today-price"></div>
+                <h3 class="gift__name">Precio: $22.500</h3>
+              </div>
+              <div class="gift__cta-wrap col-12 col-sm-6">
+                <a class="btn btn-warning" 
+                 href="/view-cursos">
+                  Ver curso 
+                  <i class="fa fa-th-list" aria-hidden="true"></i>
+                </a>
+              </div>
+              <div class="gift__cta-wrap col-12 col-sm-6">
+                <a class="btn btn-dark"  href="/shopping-cart">
+                  Add Carrito <i class="fas fa-shopping-cart"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <% include partials/footer/footer%>
   <% include partials/script/script%>

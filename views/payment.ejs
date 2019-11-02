@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Cursos">
+<% include partials/head/headHome/head%>
+
+<body>
+  <% include partials/navbar/nav%>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">cursos/listas</a>
+   
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">carrito</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pagar</a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        Todos los derechos reservados
+      </span>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 ">
+        <h3>Tu artículo (1)</h3>
+      </div>
+      <div class="col-md-7 mt-2" >
+        <form >
+          <div class="row">
+           <div class="col-12">
+              <h4 class="text-center">Datos de tu tarjeta</h4>
+           </div>
+            <hr>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="name_tarjeta">Nombre en la tarjeta </label>
+              <input type="text" class="form-control" id="name_tarjeta" placeholder="Nombre en la tarjeta ">
+            </div>
+            <div class="form-group">
+              <label for="num_tarjeta">Número de la tarjeta</label>
+              <input type="text" class="form-control" id="num_tarjeta" placeholder="Número de la tarjeta">
+            </div>
+            <div class="row">
+              <div class="col">
+                <input type="text" class="form-control" placeholder="MM / AA">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="CVC">
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col">
+                <input type="text" class="form-control" placeholder="Panamá" value="Panamá" disabled>
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="Codigo Postal">
+              </div>
+            </div>
+            <div class="form-group mt-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="gridCheck">
+                  <label class="form-check-label" for="gridCheck">
+                    Recordar contraseña
+                  </label>
+                </div>
+              </div>
+            <div class="row mt-3">
+              <div class="col">
+                <button class="btn btn-danger btn-block btn-lg">Realizar pago</button>
+              </div>
+              <div class="col">
+                <span>
+                  Al completar la compra, aceptas estas Condiciones de uso.
+                </span>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <% include partials/footer/footer%>
+  <% include partials/script/script%>
+</body>
+
+</html>

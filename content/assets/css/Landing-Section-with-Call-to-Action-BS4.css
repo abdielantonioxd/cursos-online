@@ -32,8 +32,8 @@ a:hover, a:focus {
   text-align: center;
 }
 
-.btn {
-  border-width: 2px;
+.btn-home {
+  border-width: 2px !important;
   background-color: transparent;
   font-weight: 400;
   opacity: 0.8;
@@ -43,58 +43,22 @@ a:hover, a:focus {
   color: #888888;
 }
 
-.btn:hover, .btn:focus, .btn:active, .btn.active, .btn:active:focus, .btn:active:hover, .btn.active:focus, .btn.active:hover, .open > .btn.dropdown-toggle, .open > .btn.dropdown-toggle:focus, .open > .btn.dropdown-toggle:hover {
-  /*background-color: transparent;*/
-  /*color: #777777;*/
-  /*border-color: #777777;*/
-}
 
-.btn:hover, .btn:focus {
+
+.btn-home:hover, .btn-home:focus {
   opacity: 1;
   filter: alpha(opacity=100);
   outline: 0 !important;
 }
 
-.btn:active, .btn.active, .open > .btn.dropdown-toggle {
+.btn-home:active, .btn-home.active, .open > .btn-home.dropdown-toggle {
   -webkit-box-shadow: none;
   box-shadow: none;
   outline: 0 !important;
 }
 
-.btn-primary {
-  border-color: #3472F7;
-  color: #3472F7;
-}
 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary.active:focus, .btn-primary.active:hover, .open > .btn-primary.dropdown-toggle, .open > .btn-primary.dropdown-toggle:focus, .open > .btn-primary.dropdown-toggle:hover {
-  background-color: transparent;
-  color: #1D62F0;
-  border-color: #1D62F0;
-}
-
-.btn-success {
-  border-color: #05AE0E;
-  color: #05AE0E;
-}
-
-.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .btn-success:active:focus, .btn-success:active:hover, .btn-success.active:focus, .btn-success.active:hover, .open > .btn-success.dropdown-toggle, .open > .btn-success.dropdown-toggle:focus, .open > .btn-success.dropdown-toggle:hover {
-  background-color: transparent;
-  color: #049F0C;
-  border-color: #049F0C;
-}
-
-.btn-danger {
-  border-color: #FF3B30;
-  color: #FF3B30;
-}
-
-.btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .btn-danger:active:focus, .btn-danger:active:hover, .btn-danger.active:focus, .btn-danger.active:hover, .open > .btn-danger.dropdown-toggle, .open > .btn-danger.dropdown-toggle:focus, .open > .btn-danger.dropdown-toggle:hover {
-  background-color: transparent;
-  color: #EE2D20;
-  border-color: #EE2D20;
-}
-
-.btn-sm {
+.btn-home-sm {
   font-size: 12px;
   border-radius: 3px;
   padding: 5px 10px;
@@ -111,10 +75,7 @@ a {
   -webkit-text-decoration-skip: objects;
 }
 
-a:hover {
-  color: #0a6ebd;
-  text-decoration: underline;
-}
+
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -260,11 +221,7 @@ a:focus, a:hover {
   margin: 18px 0;
 }
 
-.landing-intro .btn {
-  /*text-transform: uppercase;*/
-  /*font-weight: 300;*/
-  letter-spacing: 1px;
-}
+
 
 .landing-intro h1 {
   color: #fff;
@@ -300,9 +257,9 @@ h1 .brand {
   background-repeat: no-repeat;
 }
 
-.btn {
+/* .btn {
   border-radius: 20px;
-}
+} */
 
 .landing-threshold .container-fluid {
   min-height: 85vh;

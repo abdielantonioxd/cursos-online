@@ -4,6 +4,8 @@ global.settings = require(globalPath).settings()[process.env.PLUGDO_GLOBAL_ENV |
 const server = require("@dellasera/plugdo-server").server();
 require("./content/modules/mongodb/config/configdb");
 server.mvc.webserver.use(require("./content/modules/mongodb/inicio-session/api-session"));
+server.mvc.webserver.use(require("./content/modules/mongodb/categorias/api-categoria"));
+server.mvc.webserver.use(require("./content/modules/mongodb/courses/api-courses"));
 const path = require("path");
 const port = process.env.PORT === undefined ? 4000 : process.env.PORT;
 server.start(port, path.resolve(__dirname));

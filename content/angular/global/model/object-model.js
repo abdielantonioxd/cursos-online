@@ -4,15 +4,15 @@ var categorias = [
     id:"1"
   },
   {
-    type:"programación web",
+    type:"Programación web",
     id:"2"
   },
   {
-    type:"administrador de nube ",
+    type:"Administrador de nube ",
     id:"3"
   },
   {
-    type:"bases de datos",
+    type:"Bases de datos",
     id:"4"
   }
 ]

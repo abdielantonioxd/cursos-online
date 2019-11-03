@@ -5,7 +5,7 @@ mvc.controller({
   view: "index.ejs"
 }, function (req, ) {
   return {
-    title: "Customer Home Page",
+    name: "home",
     message: "Welcome to our web page!"
   };
 });
@@ -18,7 +18,7 @@ mvc.controller({
   view: "cursos.ejs"
 }, function (req, ) {
   return {
-    title: "Customer Home Page",
+    name: "search_courses",
     message: "Welcome to our web page!"
   };
 });
@@ -30,7 +30,7 @@ mvc.controller({
   view: "views-cursos.ejs"
 }, function (req, ) {
   return {
-    title: "Customer Home Page",
+    name: "courses_view",
     message: "Welcome to our web page!"
   };
 });
@@ -54,7 +54,7 @@ mvc.controller({
   view: "payment.ejs"
 }, function (req, ) {
   return {
-    title: "Customer Home Page",
+    name: "pay",
     message: "Welcome to our web page!"
   };
 });

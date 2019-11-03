@@ -1,41 +1,36 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="Cursos">
+<html ng-app="Cursos">
 <% include partials/head/headHome/head%>
-
-<body>
+<body ng-cloak>
   <% include partials/navbar/nav%>
-  <div class="container">
+  <div class="container" ng-controller="view-courses">
     <div class="row d-flex justify-content-center">
       <div class="col-md-8">
         <div class="text-center">
-          <h4>Curso de programación web </h4>
-          <img src="./assets/img/computer-1245714_1920.jpg" class="img-fluid" alt="Responsive image">
+          <h4>{{dataCourse.Titulo}}</h4>
+          <img  ng-src="./Imagenes/{{dataCourse.Imagen}}" class="img-fluid" alt="Responsive image">
         </div>
       </div>
       <div class="col-md-12">
         <div class="row">
           <div class="col">
             <h3>Requisitos</h3>
-            <p>es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de
-              relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica
-              a la imprenta)</p>
+            <p>{{dataCourse.Requisitos}}</p>
           </div>
           <div class="col">
             <h3>Información</h3>
-            <p>es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de
-              relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica
-              a la imprenta)</p>
+            <p>{{dataCourse.Informacion}}</p>
           </div>
 
         </div>
         <div class="row">
           <div class="col">
             <h3>Profesor</h3>
-            <p>Eduardo Flores</p>
+            <p>{{dataCourse.nombre_profesor}}</p>
           </div>
           <div class="col">
             <h3>Categoria</h3>
-            <p>Cursos de Programacion</p>
+            <p>{{ dataCourse.Categorias}}</p>
           </div>
 
         </div>

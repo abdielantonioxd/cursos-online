@@ -35,3 +35,36 @@
 .border-rigth {
   border-right: solid 1px #d2d7dc !important;
 }
+.color-check:hover {
+  color: #f5ba17 !important;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container-check-search input:checked~.checkmark {
+  border-color: #dc0505;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container-check-search input:checked~.checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container-check-search .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 12px;
+  border: solid #dc0505;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}

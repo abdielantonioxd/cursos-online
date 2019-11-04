@@ -4,46 +4,53 @@
 
 <body>
   <% include partials/navbar/nav%>
-  <div class="container">
+  <div class="container" ng-controller="shopping-cart">
     <div class="row">
       <div class="col-md-12">
         <h2>Shopping Cart</h2>
-        <table class="table">
+        <table class="table table-bordered table-dark">
           <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">titulo</th>
-              <th scope="col">precio</th>
-              <th scope="col">eliminar</th>
+              <th scope="col"></th>
+              <th scope="col">Title</th>
+              <th scope="col">Price</th>
+              <th scope="col">Delete</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody ng-repeat="x in Shopping">
             <tr>
+              <div class="jumbotron jumbotron-fluid" ng-hide="lengthEmpty">
+                <div class="container">
+                  <h1 class="display-4">Hola {{name}}</h1>
+                  <p class="lead">Tu carrito actualmente esta vacio.</p>
+                </div>
+              </div>
               <td>
                 <ul class="list-unstyled">
                   <li class="media">
-                    <img src="./assets/img/computer-1245714_1920.jpg" class="mr-3" style="width: 100px;">
+                    <img ng-src="imagenes/{{x.Imagen}}" class="mr-3" style="width: 100px;">
                     <div class="media-body">
                       <h5 class="mt-0 mb-1"></h5>
 
                     </div>
                   </li>
               </td>
-              <td>Curso de programación</td>
-              <td>500</td>
-              <td><button type="button" class="btn btn-danger"> <i class="fa fa-trash-o" aria-hidden="true"></i>
+              <td>{{x.Titulo}}</td>
+              <td>{{x.Precio | currency}}</td>
+              <td><button type="button" class="btn btn-danger" ng-click="deleteCourses(x)"> <i class="fa fa-trash-o"
+                    aria-hidden="true"></i>
                   Eliminar</button></td>
             </tr>
           </tbody>
         </table>
         <div class="row">
-          <div class="col-4 ">
+          <div class="col-md-4 ">
             <div class="jumbotron jumbotron">
               <div class="container">
                 <h6>Total</h6>
-                <p class="lead"> B/500.00</p>
+                <p class="lead"> {{Total | currency}}</p>
               </div>
-              <button class="btn btn-success btn-block btn-lg"><i class="fa fa-credit-card" aria-hidden="true"></i>
+              <button class="btn btn-success btn-block btn-lg" ng-click="ListPayment()"><i class="fa fa-credit-card" aria-hidden="true"></i>
                 Pagar</button>
             </div>
           </div>

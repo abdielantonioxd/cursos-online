@@ -1,4 +1,4 @@
-app.controller('ctrl-inicio-session', ['$scope', '$http', function ($scope, $http) {
+app.controller('ctrl-inicio-session', ['$scope', '$http', 'Dataservice', function ($scope, $http, Dataservice) {
   var {
     cookie
   } = plugdo;
@@ -22,7 +22,7 @@ app.controller('ctrl-inicio-session', ['$scope', '$http', function ($scope, $htt
   function existUser(obj) {
     $http.post(GetUsers, obj).then(function (response) {
       var res = response.data.ok;
-      if (res == true) {
+      if (res == true &&  response.data.save.length != 0) {
         var userExist = response.data.save[0];
         $scope.user = [];
         $scope.user.push({
@@ -34,7 +34,7 @@ app.controller('ctrl-inicio-session', ['$scope', '$http', function ($scope, $htt
         cookie.set("session-exist", users_x, 1);
         swal("Bien !", `Hola Bienvenido ${userExist.nombre}`, "success");
         $('#inicio').modal('hide');
-        Func_access();
+        location.href = "/";
       } else {
         swal("Este Usuario no existe ", "Intenta Registrarte", "error");
       }
@@ -49,12 +49,15 @@ app.controller('ctrl-inicio-session', ['$scope', '$http', function ($scope, $htt
       // console.log($scope.name)
       $scope.sessionStart = true;
       $scope.userActive = false;
+      countShoppingCart(dataUser);
     } else {
       if ($scope.user != "") {
         // console.log($scope.user);
         $scope.sessionStart = true;
         $scope.userActive = false;
-        $scope.name = $scope.user[0].nombre;
+        $scope.name = $scope.user[0].name;
+        var dataUser = $scope.user[0];
+        countShoppingCart(dataUser);
       } else {
         $scope.sessionStart = false;
         $scope.userActive = true;
@@ -90,10 +93,11 @@ app.controller('ctrl-inicio-session', ['$scope', '$http', function ($scope, $htt
         var users_x = JSON.stringify($scope.user[0]);
         cookie.set("session-exist", users_x, 1);
         swal("Bien !", "Te has registrado correctamente ", "success");
-        location.href = "/";
+        // location.href = "/";
       } else {
         swal("Error!", "Intentalo nuevamente", "error");
       }
+      // console.log(response)
     })
   }
 
@@ -102,6 +106,18 @@ app.controller('ctrl-inicio-session', ['$scope', '$http', function ($scope, $htt
     location.href = "/";
   }
 
- 
+  function countShoppingCart(dataUser) {
+    var dataUser = {
+      id_usuario: dataUser.id
+    }
+    Dataservice.GetShoppingCart(dataUser).then(function (response) {
+      countShoping = response.data.save.length
+      $scope.countShopping = countShoping;
+    })
+  }
+
+  $scope.loadShoppingCart = function (){
+    location.href = "/shopping-cart";
+  }
   Func_access()
 }]);

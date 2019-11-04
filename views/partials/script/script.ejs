@@ -4,16 +4,25 @@
 <script src="angular/global/var/var.js"></script>
 <script src="angular/lib/angular.min.js"></script>
 <script src="angular/app/app.js"></script>
-  <script src="assets/js/ui-pagination/ui-bootstrap-custom.min.js"></script>
+<script src="angular/services/services.js"></script>
 <script src="angular/controllers/inicio-session-ctrl.js"></script>
+<script src="assets/js/ui-pagination/ui-bootstrap-custom.min.js"></script>
+
 <% if(name == "search_courses"){%>
 <script src="angular/controllers/filter-cursos-ctrl.js"></script>
 <%}%>
+
 <% if(name == "courses_view"){%>
-  <script src="angular/controllers/view-courses-ctrl.js"></script>
+<script src="angular/controllers/view-courses-ctrl.js"></script>
+<%}%>
 
-  <%}%>
+  <% if(name == "shopping"){%>
+<script src="angular/controllers/shopping-cart-ctrl.js"></script>
+<%}%>
+<% if(name == "payment"){%>
+<script src="angular/controllers/payment-courses-ctrl.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.1/jspdf.debug.js" ></script>
 
+<%}%>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="assets/js/sweetAlert/sweetalert.min.js"></script>
-

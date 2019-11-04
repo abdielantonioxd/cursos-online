@@ -1,6 +1,6 @@
-<nav class="navbar navbar-light navbar-expand-md sticky-top navigation-clean-button"
-ng-cloak   ng-controller="ctrl-inicio-session">
-    
+<nav class="navbar navbar-light navbar-expand-md sticky-top navigation-clean-button" ng-cloak
+    ng-controller="ctrl-inicio-session">
+
     <div class="container">
         <a class="navbar-brand" href="/" style="font-size: 31px;">
             <span class="brand"
@@ -11,15 +11,22 @@ ng-cloak   ng-controller="ctrl-inicio-session">
         </button>
         <div class="collapse navbar-collapse" id="navcol-1">
             <ul class="nav navbar-nav mr-auto">
-                <li class="nav-item" role="presentation"><a class="nav-link active" href="/nosotros">Sobre nosotros</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link active" href="/nosotros">Sobre nosotros</a>
+                </li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="/cursos">Lista de cursos</a></li>
             </ul>
             <span class="navbar-text actions" ng-hide="sessionStart">
                 <a class="login" href="#" data-toggle="modal" data-target="#registro" data-backdrop="false">Crear
                     Cuenta</a>
                 <a class="btn btn-light action-button" role="button" href="#" style="background-color: rgb(215,182,5);"
-                    data-toggle="modal" data-target="#inicio" >Iniciar sesion</a>
+                    data-toggle="modal" data-target="#inicio">Iniciar sesion</a>
             </span>
+            <button ng-hide="userActive" type="button" class="btn btn-light m-1" style="border: solid 1px grey;"
+                ng-click="loadShoppingCart()">
+                <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                Carrito
+                <span class="badge badge-danger">{{countShopping}}</span>
+            </button>
             <div ng-hide="userActive">
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -27,8 +34,9 @@ ng-cloak   ng-controller="ctrl-inicio-session">
                         <i class="fa fa-user-circle-o" aria-hidden="true"></i> {{name}}
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">ver Carrito</a>
-                        <a class="dropdown-item" href="#">Ver Facturas</a>
+                        <a class="dropdown-item" href="/shopping-cart">ver Carrito</a>
+                        <a class="dropdown-item" href="/mis-cursos">Mis cursos <span
+                                class="badge badge-danger">0</span></a>
                         <a class="dropdown-item" href="#" ng-click="close_session()">Cerrar Sesión</a>
                     </div>
                 </div>
@@ -36,8 +44,8 @@ ng-cloak   ng-controller="ctrl-inicio-session">
 
 
             <!-- modales -->
-            <div class="modal fade " id="inicio" tabindex="-1" role="dialog" data-backdrop="false" aria-labelledby="exampleModalCenterTitle"
-                aria-hidden="true" style="background: #00000061; " >
+            <div class="modal fade " id="inicio" tabindex="-1" role="dialog" data-backdrop="false"
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background: #00000061; ">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -57,7 +65,7 @@ ng-cloak   ng-controller="ctrl-inicio-session">
                                 </div>
                                 <div class="form-group">
                                     <label for="Password">Contraseña</label>
-                                    <input type="text" class="form-control" id="Password" name="password"
+                                    <input type="password" class="form-control" id="Password" name="password"
                                         placeholder="Ingresa tu Contraseña">
                                 </div>
                                 <button type="button" class="btn btn-dark btn-block"
@@ -69,8 +77,8 @@ ng-cloak   ng-controller="ctrl-inicio-session">
             </div>
 
             <!-- modales -->
-            <div class="modal fade" id="registro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                aria-hidden="true" style="background: #00000061;">
+            <div class="modal fade" id="registro" tabindex="-1" role="dialog" data-backdrop="false"
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background: #00000061;">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -95,7 +103,7 @@ ng-cloak   ng-controller="ctrl-inicio-session">
                                 </div>
                                 <div class="form-group">
                                     <label for="Password">Contraseña</label>
-                                    <input type="text" class="form-control" id="password" name="password"
+                                    <input type="password" class="form-control" id="password" name="password"
                                         placeholder="Ingresa tu Contraseña">
                                 </div>
                                 <button type="button" class="btn btn-dark btn-block" ng-click="register_users()">Crear

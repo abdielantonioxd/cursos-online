@@ -6,7 +6,7 @@ mvc.controller({
 }, function (req, ) {
   return {
     name: "home",
-    message: "Welcome to our web page!"
+    title: "LabCode"
   };
 });
 
@@ -19,7 +19,7 @@ mvc.controller({
 }, function (req, ) {
   return {
     name: "search_courses",
-    message: "Welcome to our web page!"
+    title: "LabCode-courses"
   };
 });
 
@@ -31,7 +31,7 @@ mvc.controller({
 }, function (req, ) {
   return {
     name: "courses_view",
-    message: "Welcome to our web page!"
+    title: "LabCode-view-courses"
   };
 });
 
@@ -42,8 +42,8 @@ mvc.controller({
   view: "shopping-cart.ejs"
 }, function (req, ) {
   return {
-    title: "Customer Home Page",
-    message: "Welcome to our web page!"
+    name: "shopping",
+    title: "LabCode-shopping-cart"
   };
 });
 
@@ -54,7 +54,19 @@ mvc.controller({
   view: "payment.ejs"
 }, function (req, ) {
   return {
-    name: "pay",
-    message: "Welcome to our web page!"
+    name: "payment",
+    title: "LabCode-payment"
+  };
+});
+
+mvc.controller({
+  name: "my",
+  action: "courses",
+  path: "/mis-cursos",
+  view: "mis-cursos.ejs"
+}, function (req, ) {
+  return {
+    name: "myCourses",
+    title: "mis-cursos"
   };
 });

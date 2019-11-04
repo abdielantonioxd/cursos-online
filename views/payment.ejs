@@ -6,15 +6,13 @@
   <% include partials/navbar/nav%>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">cursos/listas</a>
-   
+
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">carrito</a>
+          <a class="nav-link" href="/shopping-cart">carrito</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pagar</a>
-        </li>
+
       </ul>
       <span class="navbar-text">
         Todos los derechos reservados
@@ -22,55 +20,66 @@
     </div>
   </nav>
 
-  <div class="container">
+  <div class="container" ng-controller="payment-courses">
     <div class="row">
       <div class="col-md-3 ">
-        <h3>Tu artículo (1)</h3>
+        <h3> Artículo ({{countArticle}})</h3>
+        <div ng-repeat=" x in article">
+          <div class="media mt-2">
+            <img class="mr-3" ng-src="imagenes/{{x.Imagen}} " alt="Generic placeholder image" style="width: 50px;">
+            <div class="media-body">
+              <h6 class="mt-0 text-truncate">{{x.Titulo}}</h6>
+            </div>
+          </div>
+        </div>
+        <div>
+          <b>Total: {{ Total | currency}}</b>
+        </div>
       </div>
-      <div class="col-md-7 mt-2" >
-        <form >
+      <div class="col-md-7 mt-2">
+        <form id="formDataTarjeta">
           <div class="row">
-           <div class="col-12">
+            <div class="col-12">
               <h4 class="text-center">Datos de tu tarjeta</h4>
-           </div>
+            </div>
             <hr>
           </div>
           <div class="col">
             <div class="form-group">
               <label for="name_tarjeta">Nombre en la tarjeta </label>
-              <input type="text" class="form-control" id="name_tarjeta" placeholder="Nombre en la tarjeta ">
+              <input type="text" class="form-control" id="name_tarjeta"  name="name_tarjeta" placeholder="Nombre en la tarjeta ">
             </div>
             <div class="form-group">
               <label for="num_tarjeta">Número de la tarjeta</label>
-              <input type="text" class="form-control" id="num_tarjeta" placeholder="Número de la tarjeta">
+              <input type="number" class="form-control" name="num_tarjeta" id="num_tarjeta" placeholder="Número de la tarjeta">
             </div>
             <div class="row">
               <div class="col">
-                <input type="text" class="form-control" placeholder="MM / AA">
+                <input type="month" class="form-control" name="Ma" placeholder="MM / AA">
               </div>
               <div class="col">
-                <input type="text" class="form-control" placeholder="CVC">
+                <input type="number" class="form-control" name="cvc" placeholder="CVC">
               </div>
             </div>
             <div class="row mt-3">
               <div class="col">
-                <input type="text" class="form-control" placeholder="Panamá" value="Panamá" disabled>
+                <input type="text" class="form-control" name="country" placeholder="Panamá" value="Panamá" disabled>
               </div>
               <div class="col">
-                <input type="text" class="form-control" placeholder="Codigo Postal">
+                <input type="number" class="form-control" name="codePostal" placeholder="Codigo Postal">
               </div>
             </div>
             <div class="form-group mt-3">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="gridCheck">
-                  <label class="form-check-label" for="gridCheck">
-                    Recordar contraseña
-                  </label>
-                </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck">
+                  Recordar contraseña
+                </label>
               </div>
+            </div>
             <div class="row mt-3">
               <div class="col">
-                <button class="btn btn-danger btn-block btn-lg">Realizar pago</button>
+                <button class="btn btn-danger btn-block btn-lg" ng-click="paymentCourses()">Realizar pago</button>
               </div>
               <div class="col">
                 <span>

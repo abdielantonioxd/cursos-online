@@ -57,4 +57,23 @@ Courses.post("/get-course", function (req, res) {
   });
 });
 
+Courses.post("/get-ListCourses", function (req, res) {
+  //muestra los modulos segun el role
+  let body = req.body;
+  cours.find({
+    id_Curso: body.id_Curso
+  }).exec((err, cours) => {
+    if (err) {
+      return res.status(400).json({
+        ok: false,
+        err
+      });
+    }
+    res.json({
+      ok: true,
+      save: cours
+    });
+  });
+});
+
 module.exports = Courses;

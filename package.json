@@ -12,6 +12,8 @@
   "license": "MIT",
   "dependencies": {
     "@dellasera/plugdo-server": "^1.0.15",
-    "mongoose": "^5.7.7"
+    "mongoose": "^5.7.7",
+    "nodemailer": "^6.3.1",
+    "nodemailer-express-handlebars": "^3.1.0"
   }
 }

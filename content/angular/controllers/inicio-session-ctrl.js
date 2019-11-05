@@ -49,6 +49,7 @@ app.controller('ctrl-inicio-session', ['$scope', '$http', 'Dataservice', functio
       // console.log($scope.name)
       $scope.sessionStart = true;
       $scope.userActive = false;
+      viewMyCourses(dataUser)
       countShoppingCart(dataUser);
     } else {
       if ($scope.user != "") {
@@ -58,6 +59,7 @@ app.controller('ctrl-inicio-session', ['$scope', '$http', 'Dataservice', functio
         $scope.name = $scope.user[0].name;
         var dataUser = $scope.user[0];
         countShoppingCart(dataUser);
+        viewMyCourses(dataUser)
       } else {
         $scope.sessionStart = false;
         $scope.userActive = true;
@@ -118,6 +120,21 @@ app.controller('ctrl-inicio-session', ['$scope', '$http', 'Dataservice', functio
 
   $scope.loadShoppingCart = function (){
     location.href = "/shopping-cart";
+  }
+
+
+  function viewMyCourses(dataUser) {
+    var dataAccess = {
+      id_usuario: dataUser.id
+    }
+    // console.log(dataAccess)
+    $http.post(FindMycourses, dataAccess).then(function (response) {
+      var res = response.data.ok;
+      if (res == true) {
+        $scope.countMycourses =response.data.save.length;
+        // SelectMyCourses(courses);
+      }
+    })
   }
   Func_access()
 }]);

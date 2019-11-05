@@ -9,4 +9,5 @@ const getShoppingCart = "/get-shoppingCart";
 const deleteShopping = "/delete-shopping";
 const inserPayment = "/api/insert-payment";
 const inserMycourses = "/api/insert-Mycourses";
-var countShoping = "" ; 
+const FindMycourses = "/get-myCourses";
+const MycoursesList = "/get-ListCourses"

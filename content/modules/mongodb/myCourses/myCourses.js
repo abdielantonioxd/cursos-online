@@ -28,9 +28,9 @@ Mycoursesx.post("/api/insert-Mycourses", function (req, res) {
 Mycoursesx.post("/get-myCourses", function (req, res) {
   //muestra los modulos segun el role
   let body = req.body;
-  Cart.find({
+  MY.find({
     id_usuario: body.id_usuario
-  }).exec((err, role) => {
+  }).exec((err, cours) => {
     if (err) {
       return res.status(400).json({
         ok: false,
@@ -39,7 +39,27 @@ Mycoursesx.post("/get-myCourses", function (req, res) {
     }
     res.json({
       ok: true,
-      save: role
+      save: cours
+    });
+  });
+});
+
+
+Mycoursesx.post("/get-ListCourses", function (req, res) {
+  //muestra los modulos segun el role
+  let body = req.body;
+  MY.find({
+    id_Curso: body.id_Curso
+  }).exec((err, cours) => {
+    if (err) {
+      return res.status(400).json({
+        ok: false,
+        err
+      });
+    }
+    res.json({
+      ok: true,
+      save: cours
     });
   });
 });

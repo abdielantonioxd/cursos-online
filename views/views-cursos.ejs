@@ -4,40 +4,38 @@
 
 <body ng-cloak>
   <% include partials/navbar/nav%>
-  <div class="container-fluit m-5" ng-cloak ng-controller="view-courses">
-
-      <div class="gift row">
-        <div class="gift__img col-sm-3 col-12">
-          <img ng-src="./Imagenes/{{dataCourse.Imagen}}" />
-          <div class="gift__rating">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star fa-star-half-o"></i>
-            <i class="fa fa-star fa-star-o"></i>
-            <span class="gift__rating-number">90</span></div>
+  <div class="container " ng-cloak ng-controller="view-courses">
+    <div class="gift row">
+      <div class="gift__img col-sm-3 col-12">
+        <img ng-src="./Imagenes/{{dataCourse.Imagen}}" />
+        <div class="gift__rating">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star fa-star-half-o"></i>
+          <i class="fa fa-star fa-star-o"></i>
+          <span class="gift__rating-number">90</span></div>
+      </div>
+      <div class="gift__info col-sm-9 col-12">
+        <h4 class="gift__name">{{dataCourse.Titulo}}<br /></h4>
+        <div class="gift__details">
+          <p> <b>Información</b>:{{dataCourse.Informacion}}</p>
+          <p> <b>Profesor</b>:{{dataCourse.nombre_profesor}}</p>
         </div>
-        <div class="gift__info col-sm-9 col-12">
-          <h4 class="gift__name">{{dataCourse.Titulo}}<br /></h4>
-          <div class="gift__details">
-            <p> <b>Información</b>:{{dataCourse.Informacion}}</p>
-            <p> <b>Profesor</b>:{{dataCourse.nombre_profesor}}</p>
+        <div class="gift__bottom row mt-3">
+          <div class="gift__price-wrap col-12 col-sm-6">
+            <div class="gift__normal-price"></div>
+            <div class="gift__today-price"></div>
+            <h3 class="gift__name">Precio: {{dataCourse.Precio | currency}}</h3>
           </div>
-          <div class="gift__bottom row mt-3">
-            <div class="gift__price-wrap col-12 col-sm-6">
-              <div class="gift__normal-price"></div>
-              <div class="gift__today-price"></div>
-              <h3 class="gift__name">Precio: {{dataCourse.Precio | currency}}</h3>
-            </div>
-            <div class="gift__cta-wrap col-12 col-sm-6">
-              <button class="btn btn-dark btn-block btn-lg" ng-click="AddShoppingCard(dataCourse)">
-                Add Carrito <i class="fas fa-shopping-cart"></i>
-              </button>
-            </div>
+          <div class="gift__cta-wrap col-12 col-sm-6">
+            <button class="btn btn-dark btn-block btn-lg" ng-click="AddShoppingCard(dataCourse)">
+              Add Carrito <i class="fas fa-shopping-cart"></i>
+            </button>
           </div>
         </div>
       </div>
-
+    </div>
     <div class="row">
       <div class="col-md-12">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -46,12 +44,12 @@
               aria-selected="true">Información</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
-              aria-selected="false">Requisitos</a>
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+              aria-controls="profile" aria-selected="false">Requisitos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
-              aria-selected="false">Descripcion</a>
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+              aria-controls="contact" aria-selected="false">Descripcion</a>
           </li>
         </ul>
         <div class="tab-content" id="myTabContent">
@@ -79,7 +77,8 @@
 
       </div>
 
-    </div>
+   
+</div>
   </div>
 
   <% include partials/footer/footer%>

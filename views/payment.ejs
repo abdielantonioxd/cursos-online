@@ -20,7 +20,7 @@
     </div>
   </nav>
 
-  <div class="container" ng-cloak  ng-controller="payment-courses">
+  <div class="container" ng-cloak ng-controller="payment-courses">
     <div class="row">
       <div class="col-md-3 ">
         <h3> Artículo ({{countArticle}})</h3>
@@ -28,7 +28,7 @@
           <div class="media mt-2">
             <img class="mr-3" ng-src="Imagenes/{{x.Imagen}} " alt="Generic placeholder image" style="width: 50px;">
             <div class="media-body">
-              <h6 class="mt-0 text-truncate">{{x.Titulo}}</h6>
+              <h6 class="">{{x.Titulo}}</h6>
             </div>
           </div>
         </div>
@@ -47,11 +47,13 @@
           <div class="col">
             <div class="form-group">
               <label for="name_tarjeta">Nombre en la tarjeta </label>
-              <input type="text" class="form-control" id="name_tarjeta"  name="name_tarjeta" placeholder="Nombre en la tarjeta ">
+              <input type="text" class="form-control" id="name_tarjeta" name="name_tarjeta"
+                placeholder="Nombre en la tarjeta ">
             </div>
             <div class="form-group">
               <label for="num_tarjeta">Número de la tarjeta</label>
-              <input type="number" class="form-control" name="num_tarjeta" id="num_tarjeta" placeholder="Número de la tarjeta">
+              <input type="number" class="form-control" name="num_tarjeta" id="num_tarjeta"
+                placeholder="Número de la tarjeta">
             </div>
             <div class="row">
               <div class="col">
@@ -92,9 +94,10 @@
       </div>
     </div>
   </div>
+  <div>
 
-  <% include partials/footer/footer%>
-  <% include partials/script/script%>
+    <% include partials/footer/footer%>
+    <% include partials/script/script%>
 </body>
 
 </html>

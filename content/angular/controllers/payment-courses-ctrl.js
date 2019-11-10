@@ -129,21 +129,17 @@ app.controller("payment-courses", ['$scope', '$http', 'Dataservice', function ($
 
   function deleteData() {
     cookie.delete("data-payment");
+       // CREATE A WINDOW OBJECT.
+       var win = window.open('/factura');
+       win.document.close(); 
   }
 
   function generarPdf() {
-    //    console.log("button clicked");
-    //  $scope.order.showPopupAddedToCart = !$scope.order.showPopupAddedToCart;
-    var doc = new jsPDF();
-    doc.text(20, 20, 'LabCode');
-    doc.text(20, 30, ``);
-    doc.addPage(1);
-    doc.text(20, 20, 'Do you like that?');
-    // Save the PDF
-    doc.save('factura.pdf');
     insertMycourses();
+       // CREATE A WINDOW OBJECT.
+       var win = window.open('/factura');
+       win.document.close(); 
   }
-
 
   function insertMycourses() {
     var art = $scope.article;
@@ -165,4 +161,5 @@ app.controller("payment-courses", ['$scope', '$http', 'Dataservice', function ($
     })
   }
   Func_access()
+
 }])

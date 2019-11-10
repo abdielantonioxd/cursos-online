@@ -70,3 +70,15 @@ mvc.controller({
     title: "mis-cursos"
   };
 });
+
+mvc.controller({
+  name: "my",
+  action: "factura",
+  path: "/factura",
+  view: "factura.ejs"
+}, function (req, ) {
+  return {
+    name: "myCourses",
+    title: "mis-cursos"
+  };
+});

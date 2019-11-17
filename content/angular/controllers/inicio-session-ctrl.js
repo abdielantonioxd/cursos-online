@@ -22,7 +22,7 @@ app.controller('ctrl-inicio-session', ['$scope', '$http', 'Dataservice', functio
   function existUser(obj) {
     $http.post(GetUsers, obj).then(function (response) {
       var res = response.data.ok;
-      if (res == true &&  response.data.save.length != 0) {
+      if (res == true && response.data.save.length != 0) {
         var userExist = response.data.save[0];
         $scope.user = [];
         $scope.user.push({
@@ -34,7 +34,7 @@ app.controller('ctrl-inicio-session', ['$scope', '$http', 'Dataservice', functio
         cookie.set("session-exist", users_x, 1);
         swal("Bien !", `Hola Bienvenido ${userExist.nombre}`, "success");
         $('#inicio').modal('hide');
-        location.href = "/";
+        Func_access();
       } else {
         swal("Este Usuario no existe ", "Intenta Registrarte", "error");
       }
@@ -95,7 +95,8 @@ app.controller('ctrl-inicio-session', ['$scope', '$http', 'Dataservice', functio
         var users_x = JSON.stringify($scope.user[0]);
         cookie.set("session-exist", users_x, 1);
         swal("Bien !", "Te has registrado correctamente ", "success");
-        // location.href = "/";
+        $('#registro').modal('hide');
+        Func_access();
       } else {
         swal("Error!", "Intentalo nuevamente", "error");
       }
@@ -118,7 +119,7 @@ app.controller('ctrl-inicio-session', ['$scope', '$http', 'Dataservice', functio
     })
   }
 
-  $scope.loadShoppingCart = function (){
+  $scope.loadShoppingCart = function () {
     location.href = "/shopping-cart";
   }
 
@@ -131,7 +132,7 @@ app.controller('ctrl-inicio-session', ['$scope', '$http', 'Dataservice', functio
     $http.post(FindMycourses, dataAccess).then(function (response) {
       var res = response.data.ok;
       if (res == true) {
-        $scope.countMycourses =response.data.save.length;
+        $scope.countMycourses = response.data.save.length;
         // SelectMyCourses(courses);
       }
     })

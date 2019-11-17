@@ -23,7 +23,7 @@ app.controller('My-courses', ['$scope', '$http', 'Dataservice', function ($scope
         $scope.name = $scope.user[0].name;
         var dataUser = $scope.user[0];
         viewMyCourses(dataUser);
-      } else {
+     } else {
         $scope.sessionStart = false;
         $scope.userActive = true;
       }
@@ -36,7 +36,7 @@ app.controller('My-courses', ['$scope', '$http', 'Dataservice', function ($scope
     }
     // console.log(dataAccess)
     $http.post(FindMycourses, dataAccess).then(function (response) {
-      var res = response.data.ok;
+      var res = response.data.ok;     
       if (res == true) {
         var courses = response.data.save;
         SelectMyCourses(courses);
@@ -60,10 +60,8 @@ app.controller('My-courses', ['$scope', '$http', 'Dataservice', function ($scope
       var res = response.data.ok;
       if (res == true) {
         var dataList_x = response.data.save[0]
-        $scope.dataList.push(dataList_x);
-        // console.log($scope.dataList)
-      } else {
-
+        $scope.dataList.push(dataList_x)     
+        console.log($scope.dataList)
       }
     })
   }

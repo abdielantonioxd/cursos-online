@@ -14,5 +14,5 @@ server.mvc.webserver.use(require("./content/modules/mongodb/pago/pagos"));
 server.mvc.webserver.use(require("./content/modules/mongodb/myCourses/myCourses"));
 const path = require("path");
 
-const port = process.env.PORT === undefined ? 4000 : process.env.PORT;
+const port = process.env.PORT === undefined ? 3000 : process.env.PORT;
 server.start(port, path.resolve(__dirname));

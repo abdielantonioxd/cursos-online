@@ -53,6 +53,10 @@ app.controller("filter-cursos", ['$scope', '$http', 'Dataservice', function ($sc
     $http.post(findCours, data).then(function (response) {
       $scope.dataCourses = response.data.save;
       $scope.countCourses = response.data.save.length;
+      if ($scope.dataCourses != "") {
+        alertify.set('notifier', 'position', 'top-right');
+        alertify.success(`${$scope.countCourses} Resultados `);
+      }
     })
   }
 
@@ -68,7 +72,7 @@ app.controller("filter-cursos", ['$scope', '$http', 'Dataservice', function ($sc
         Precio: dataX.Precio,
         nombre_profesor: dataX.nombre_profesor,
         Informacion: dataX.Informacion,
-        Imagen:dataX.Imagen
+        Imagen: dataX.Imagen
       }
       sendDataShoppinCart(data)
     } else {
@@ -93,10 +97,18 @@ app.controller("filter-cursos", ['$scope', '$http', 'Dataservice', function ($sc
     Dataservice.InsertShoppingCartLabCode(data).then(function (response) {
       var res = response.data.ok;
       if (res == true) {
-        swal("Listo!", "Se agrego correctamente", "success");
-        setTimeout(() => {
-          location.href = "/shopping-cart";
-        }, 2000);
+        swal({
+          title: "Listo ",
+          text: "Se agrego correctamente, desea ver el estado de tu carritode compra o quieres seguir comprando",
+          icon: "success",
+          buttons: ['Seguir comprando','Ver carrito'],
+          dangerMode: true,
+        })
+        .then((willadd) => {
+          if (willadd === true) {
+              location.href = "/shopping-cart";
+          } 
+        });
       } else {
         swal("Error!", "Verifica que tu conexion este bien ", "warning");
       }

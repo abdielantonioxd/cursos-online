@@ -10,4 +10,5 @@ const deleteShopping = "/delete-shopping";
 const inserPayment = "/api/insert-payment";
 const inserMycourses = "/api/insert-Mycourses";
 const FindMycourses = "/get-myCourses";
-const MycoursesList = "/get-ListCourses"
+const MycoursesList = "/get-ListCourses";
+const UrlEmail = "/send-notification";

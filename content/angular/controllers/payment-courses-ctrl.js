@@ -3,10 +3,20 @@ app.controller("payment-courses", ['$scope', '$http', 'Dataservice', function ($
     cookie
   } = plugdo;
   $scope.user = [];
+  var DataEmailInfo = [];
   var cookie_sessionExist = cookie.get("session-exist");
   var cookie_dataPayment = cookie.get("data-payment");
   var cookie_dataTotal = cookie.get("data-total");
-  // cookie.delete("data-payment");
+  if (cookie_sessionExist != null) {
+    var credenciales = JSON.parse(cookie_sessionExist)
+    $scope.name = credenciales.name;
+    $scope.email = credenciales.email;
+  }
+
+  if (cookie_dataPayment === "" && cookie_dataPayment === null  ) {
+    location.href = "/";
+  } 
+
   function Func_access() {
     if (cookie_sessionExist != "") {
       var dataUser = JSON.parse(cookie_sessionExist);
@@ -90,12 +100,11 @@ app.controller("payment-courses", ['$scope', '$http', 'Dataservice', function ($
           button: "listo",
         });
       }
-      generarPdf();
+      sendEmail();
     })
   }
 
   function deleteShopingCart() {
-    // console.log($scope.article);
     var art = $scope.article;
     for (const key in art) {
       $scope.deleteCourses(art[key]);
@@ -129,16 +138,20 @@ app.controller("payment-courses", ['$scope', '$http', 'Dataservice', function ($
 
   function deleteData() {
     cookie.delete("data-payment");
-       // CREATE A WINDOW OBJECT.
-       var win = window.open('/factura');
-       win.document.close(); 
   }
 
-  function generarPdf() {
-    insertMycourses();
-       // CREATE A WINDOW OBJECT.
-       var win = window.open('/factura');
-       win.document.close(); 
+  function sendEmail() {
+    DataEmailInfo = {
+      name: $scope.name,
+      email: $scope.email,
+      total :$scope.Total
+    }
+    $http.post(UrlEmail, DataEmailInfo).then(function (response) {
+      if (response.status == 200) {
+        swal("Good!", "Se ha realizado el pago correctamente ", "success");
+        insertMycourses();
+      }
+    })
   }
 
   function insertMycourses() {
@@ -155,7 +168,6 @@ app.controller("payment-courses", ['$scope', '$http', 'Dataservice', function ($
     $http.post(inserMycourses, myCourses).then(function (response) {
       var res = response.data.ok;
       if (res == true) {
-        swal("Good!", "Se ha realizado el pago correctamente ", "success");
         deleteShopingCart();
       }
     })

@@ -61,7 +61,7 @@ app.controller('My-courses', ['$scope', '$http', 'Dataservice', function ($scope
       if (res == true) {
         var dataList_x = response.data.save[0]
         $scope.dataList.push(dataList_x)     
-        console.log($scope.dataList)
+        // console.log($scope.dataList)´
       }
     })
   }

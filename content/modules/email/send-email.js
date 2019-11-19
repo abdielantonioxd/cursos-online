@@ -9,14 +9,21 @@ sendconfirmation.post('/send-notification', function (req, res) {
   var body = req.body;
   let email = body.email;
   let name = body.name;
+  let total = body.total
+  // console.log(req.body)
   async function main() {
     let transporter = nodemailer.createTransport({
-      host: "imap.gmail.com", // hostname
-      secure: false,
-      port: 993,
+      host: "smtp.gmail.com", // hostname
+      // secureConnection: false,
+      service: 'gmail',//smtp.gmail.com  //in place of service use host...
+      secure: true,//true
+      port: 25,//465
+      // port: 465,
       auth: {
         user: process.env.Email,
         pass: process.env.Password,
+      }, tls: {
+        rejectUnauthorized: false
       }
     });
     var options = {
@@ -36,7 +43,8 @@ sendconfirmation.post('/send-notification', function (req, res) {
       subject: `LabCode Notificacion de compra `,
       template: 'Compra',
       context: {
-        name: name
+        nombre: name,
+        totalP:total
       }
     }, function (error, response) {
       console.log(error)

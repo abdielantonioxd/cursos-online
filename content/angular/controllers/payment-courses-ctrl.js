@@ -4,6 +4,7 @@ app.controller("payment-courses", ['$scope', '$http', 'Dataservice', function ($
   } = plugdo;
   $scope.user = [];
   var DataEmailInfo = [];
+  $scope.dataPayment = "";
   var cookie_sessionExist = cookie.get("session-exist");
   var cookie_dataPayment = cookie.get("data-payment");
   var cookie_dataTotal = cookie.get("data-total");
@@ -13,9 +14,9 @@ app.controller("payment-courses", ['$scope', '$http', 'Dataservice', function ($
     $scope.email = credenciales.email;
   }
 
-  if (cookie_dataPayment === "" && cookie_dataPayment === null  ) {
+  if (cookie_dataPayment === "" && cookie_dataPayment === null) {
     location.href = "/";
-  } 
+  }
 
   function Func_access() {
     if (cookie_sessionExist != "") {
@@ -40,7 +41,7 @@ app.controller("payment-courses", ['$scope', '$http', 'Dataservice', function ($
       $scope.countArticle = dataPayment.length;
       $scope.article = dataPayment
       $scope.Total = cookie_dataTotal;
-
+      $scope.dataPayment = dataPayment;
     }
   }
 
@@ -68,18 +69,31 @@ app.controller("payment-courses", ['$scope', '$http', 'Dataservice', function ($
   function validateForm(obj) {
     if (obj.Ma != "" && obj.CodePostal != "" && obj.cvc != "" && obj.dia != "" && name_tarjeta != "" && num_tarjeta != "") {
       swal({
-          title: "LabCode",
-          text: `Estas seguro que quieres Realizar este pago.`,
-          icon: "warning",
-          buttons: true,
-          dangerMode: true,
-        })
+        title: "LabCode",
+        text: `Estas seguro que quieres Realizar este pago.`,
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
         .then((res) => {
           if (res == true) {
             sendDBPagoRealizados(obj);
           }
         });
 
+    } else {
+      swal({
+        title: "LabCode",
+        text: `Todos los campos son obligatorios`,
+        icon: "error",
+        buttons: true,
+        dangerMode: true,
+      })
+        .then((res) => {
+          if (res == true) {
+
+          }
+        });
     }
   }
 
@@ -99,8 +113,9 @@ app.controller("payment-courses", ['$scope', '$http', 'Dataservice', function ($
         swal("Good job!", "Has realizado correctamente la compra", "success", {
           button: "listo",
         });
+        sendEmail();
       }
-      sendEmail();
+
     })
   }
 
@@ -144,7 +159,8 @@ app.controller("payment-courses", ['$scope', '$http', 'Dataservice', function ($
     DataEmailInfo = {
       name: $scope.name,
       email: $scope.email,
-      total :$scope.Total
+      cantidad: $scope.dataPayment.length,
+      total: $scope.Total
     }
     $http.post(UrlEmail, DataEmailInfo).then(function (response) {
       if (response.status == 200) {

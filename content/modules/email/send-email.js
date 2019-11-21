@@ -10,6 +10,7 @@ sendconfirmation.post('/send-notification', function (req, res) {
   let email = body.email;
   let name = body.name;
   let total = body.total
+  let Cantidad = body.cantidad
   // console.log(req.body)
   async function main() {
     let transporter = nodemailer.createTransport({
@@ -44,7 +45,8 @@ sendconfirmation.post('/send-notification', function (req, res) {
       template: 'Compra',
       context: {
         nombre: name,
-        totalP:total
+        totalP:total,
+        cantidad : Cantidad
       }
     }, function (error, response) {
       console.log(error)

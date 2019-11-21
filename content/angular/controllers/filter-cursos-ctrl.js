@@ -63,7 +63,7 @@ app.controller("filter-cursos", ['$scope', '$http', 'Dataservice', function ($sc
   $scope.AddShoppingCard = function (dataX) {
     if (cookie_sessionExist != null && cookie_sessionExist != "") {
       var dataUser = JSON.parse(cookie_sessionExist);
-      console.log(dataUser)
+      // console.log(dataUser)
       var data = {
         id_usuario: dataUser.id,
         id_categoria: dataX.id_categoria,

@@ -1,5 +1,5 @@
 mvc.controller({
-  name: "home",
+  name: "views",
   action: "index",
   path: "/",
   view: "index.ejs"
@@ -12,8 +12,8 @@ mvc.controller({
 
 
 mvc.controller({
-  name: "cursos",
-  action: "pages",
+  name: "views",
+  action: "cursos",
   path: "/cursos",
   view: "cursos.ejs"
 }, function (req, ) {
@@ -24,8 +24,8 @@ mvc.controller({
 });
 
 mvc.controller({
-  name: "view",
-  action: "cursos",
+  name: "views",
+  action: "view-curso",
   path: "/view-cursos",
   view: "views-cursos.ejs"
 }, function (req, ) {
@@ -36,8 +36,8 @@ mvc.controller({
 });
 
 mvc.controller({
-  name: "shoping",
-  action: "cart",
+  name: "views",
+  action: "shopping-cart",
   path: "/shopping-cart",
   view: "shopping-cart.ejs"
 }, function (req, ) {
@@ -48,8 +48,8 @@ mvc.controller({
 });
 
 mvc.controller({
-  name: "pay",
-  action: "method",
+  name: "views",
+  action: "payment",
   path: "/payment",
   view: "payment.ejs"
 }, function (req, ) {
@@ -60,8 +60,8 @@ mvc.controller({
 });
 
 mvc.controller({
-  name: "my",
-  action: "courses",
+  name: "views",
+  action: "mis-cursos",
   path: "/mis-cursos",
   view: "mis-cursos.ejs"
 }, function (req, ) {
@@ -72,7 +72,7 @@ mvc.controller({
 });
 
 mvc.controller({
-  name: "my",
+  name: "views",
   action: "factura",
   path: "/factura",
   view: "factura.ejs"
@@ -80,5 +80,17 @@ mvc.controller({
   return {
     name: "myCourses",
     title: "mis-cursos"
+  };
+});
+
+mvc.controller({
+  name: "views",
+  action: "userRegister",
+  path: "/register",
+  view: "userRegister.ejs"
+}, function (req, ) {
+  return {
+    name: "home",
+    title: "LabCode"
   };
 });
